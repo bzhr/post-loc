@@ -61,7 +61,7 @@ B) Build the functionality that allows you to return a list of stores in a given
 
 ### Task 2
 A) Build an API that returns stores from the `stores.json`...
-- The route for this JSON API is `/api/stores`. 
+- The route for this JSON API is `/api/stores?q=br`. 
 
 ### Showcase the features with example requests (with curl), also show the example responses in the README
 
