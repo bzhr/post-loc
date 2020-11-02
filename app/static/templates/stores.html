@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Stores{% endblock %}
+{% block content %}
+    <h1>Stores</h1>
+    <p>This list shows stores name, postcode, 
+      as well the latitude and longitude of that postcode.</p>
+    <table id="stores">
+      <tr>
+        <th>Name</th>
+        <th>Post Code</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+      </tr>
+      {% for item in data %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.postcode }}</td>
+          <td>{{ item.latitude }}</td>
+          <td>{{ item.longitude }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+{% endblock %}
