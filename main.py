@@ -16,6 +16,7 @@ class _RequestHandler(BaseHTTPRequestHandler):
     """
 
     def _set_headers(self, headers):
+        "Set response headers"
         self.send_response(HTTPStatus.OK.value)
         key, value = headers
         self.send_header(key, value)
@@ -37,6 +38,7 @@ class _RequestHandler(BaseHTTPRequestHandler):
 
 
 def run_server():
+    "Main entrypoint of the application"
     port = settings.PORT
     if not port:
         raise Exception("Set the PORT number in app/settings.py")
