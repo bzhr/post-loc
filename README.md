@@ -2,7 +2,7 @@
 
 ## About
 
-This project is my submission of the code assignment soltuib for the position of a senior engineer at Tequinity.
+This project is my submission to the code assignment for the position of a senior engineer at Tequinity.
 
 It's a micro framework, based on Python 3's built in `http` library.
 
@@ -112,10 +112,9 @@ B) Build the functionality that allows you to return a list of stores in a given
 A) Build an API that returns stores from the `stores.json`...
 
 - The route for this JSON API is `/api/stores?q=br`.
+- Tests are at `app/tests/test_task_2.py`
 
 B) The client app that talkst to the backend is a React app bootstraped with `create-react-app`
-
-### Showcase the features with example requests (with curl), also show the example responses in the README
 
 ## Setting up
 
@@ -201,9 +200,7 @@ Developer experience:
 Framework improvements:
 
 - Better design.
-- Logging.
 - Regex route matching.
-- Docs.
 
 App improvements:
 
@@ -212,7 +209,7 @@ App improvements:
 
 ### Make sure you indicate the time you have spent in the README.md file among other metadata.
 
-All in all, from research and design, to implementation and review, it took me about 12 hours of work on this project. I enjoyed the task and worked without pushing myself to finish sooner. Actually, I think that building a web framework would be a benefitial experience for every programmer, no matter their level of expertise.
+All in all, from research and design, to implementation and review, it took me about 12 hours of work on this project. I enjoyed the task and worked without pushing myself to finish sooner. Actually, I think that building a web framework would be a benefitial experience for every programmer, no matter their level of expertise. I am glad I worked on this project.
 
 ### What part did you find the hardest? What part are you most proud of? In both cases, why?
 
@@ -222,3 +219,5 @@ All in all, from research and design, to implementation and review, it took me a
 ### What is one thing we could do to improve this test?
 
 The documentation recommends not to use a web framework, but it's not indicated what kind of a server should be used to serve the HTML/JSON.
+
+I would also add that it can be better explained about how the client side application looks like. Results vs. suggestions were confusing to me. You can just include a sketch, which would make it much easier.
