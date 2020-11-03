@@ -128,7 +128,7 @@ B) The client app that talkst to the backend is a React app bootstraped with `cr
 ### Client app
 
 - The client app is in `/client`.
-- Run `npm i` and then `npm start`
+- Run `yarn` to install dependencies and then `yarn start` to start the development server.
 - You need to have the backend running when developing/using the client app.
 
 ## Testing
