@@ -39,13 +39,16 @@ class _RequestHandler(BaseHTTPRequestHandler):
 
 def run_server():
     "Main entrypoint of the application"
+    from app.logging import logger
     port = settings.PORT
     if not port:
+        logger.error("Set the PORT number in app/settings.py")
         raise Exception("Set the PORT number in app/settings.py")
     os.chdir(settings.ROOT)
     server_address = ('', port)
     httpd = HTTPServer(server_address, _RequestHandler)
     print('serving at %s:%d' % server_address)
+    logger.info("Serving at {}".format(port))
     httpd.serve_forever()
 
 

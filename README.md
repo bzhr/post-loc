@@ -91,6 +91,9 @@ B) Client
 - Templating with Jinja2. Leverages template inheritance.
 - Handling of query strings.
 - Communication with the postcodes.io API.
+- Logging, here's an example with log level INFO for `/stores`:
+
+  ![Logging example](app/static/app_logger.png)
 
 ### Task 1
 
