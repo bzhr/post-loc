@@ -1,20 +1,27 @@
 """Special purpose views, that build on the base views."""
 
 from urllib import parse
+import logging
 
 from .base import HtmlView, JsonView
 from ..postcodes import Stores
 
 
 class HomeView(HtmlView):
+    """Home view"""
+
     template = "index.html"
 
 
 class NotExistingView(HtmlView):
+    """Nonexistent 404 view"""
+
     template = "404.html"
 
 
 class StoresView(HtmlView):
+    """Stores view"""
+
     template = "stores.html"
 
     def get_data(_):
@@ -25,22 +32,30 @@ class StoresView(HtmlView):
 
 
 class StoresApiView(JsonView):
+    """Stores API JSON view"""
+
     query_string = None
     stores = None
+    logger = logging.getLogger("app.views.main.StoresApiView")
 
     def parse_query_string(self):
+        self.logger.info("Parsing query string")
         parsed_path = parse.urlparse(self.path)
         self.query_string = parse.parse_qs(parsed_path.query)
 
     def get_data(self):
+        self.logger.info("Preparing API data")
         self.stores = Stores()
         self.parse_query_string()
         query = self.query_string.get("q")
         if query:
+            self.logger.info("Returning filtered data")
+            self.logger.debug("Query string: {}".format(query))
             return (
                 self.filter_data(query, "postcode") +
                 sorted(self.filter_data(query, "name"), key=lambda k: k['name'])
             )
+        self.logger.info("Returning all data")
         return self.stores.data
 
     def filter_data(self, query, key):
