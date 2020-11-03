@@ -8,9 +8,11 @@ import Results from "../Results";
 const ContentBox = (props) => {
   return (
     <Box
+      // minHeight={200}
       sx={{
         maxWidth: 600,
         mx: "auto",
+        height: 250,
       }}
       bg="lightgray"
       width={[1, 1, 1 / 2]}
