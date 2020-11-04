@@ -160,8 +160,8 @@ Pytest framework is used for testing. To test, just run: `pytest` in the root fo
 - Port on which the app will run
   `PORT = 8001`
 
-- Use (_) allow all hosts. In order to escape CORS errors.
-  `ALLOWED_HOSTS = "_"`
+- Use \* to allow all hosts. In order to escape CORS errors.
+  `ALLOWED_HOSTS = "*"`
 
 - This is the json file with the stores/postcodes data
   `STORES_DATA_FILE_NAME = "stores.json"`
