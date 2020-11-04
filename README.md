@@ -152,7 +152,8 @@ Pytest framework is used for testing. To test, just run: `pytest` in the root fo
 
 - React/ReactDom - The main dependency, because it's a React app.
 - Rebass for components like flexbox, form input etc.
-- Axios for fetching data from the API
+- Axios for fetching data from the API.
+- @huse/scroll-position - To read the scroll position.
 
 ## Settings
 
