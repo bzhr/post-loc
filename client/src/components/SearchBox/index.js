@@ -3,8 +3,6 @@ import { Input } from "@rebass/forms";
 import { Box } from "rebass";
 
 const SearchBox = ({ data, query, setQuery }) => {
-  console.log("Props: ", data);
-  // console.log("Value: ", value);
   return (
     <Box>
       <Input

@@ -1,13 +1,23 @@
 import * as React from "react";
 import { Box, Flex, Text } from "rebass";
+import { useScrollPosition } from "@huse/scroll-position";
 
-const Results = ({ data }) => {
+const Results = ({ data, setOffset, limit, setLimit }) => {
+  const ref = React.useRef(null);
+  const position = useScrollPosition(ref.current);
+  console.log(useScrollPosition);
+  console.log("Position: ", position.y);
+  if (position.y > 20) {
+    setOffset(data.length);
+    setLimit("");
+  }
   return (
     <Flex my={3} flexDirection="column">
       <Text fontSize={[3, 4, 5]} fontWeight="bold" color="primary">
         Results
       </Text>
       <Flex
+        ref={ref}
         height={75}
         sx={{ overflow: "auto" }}
         my={3}

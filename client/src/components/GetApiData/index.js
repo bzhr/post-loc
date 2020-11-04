@@ -7,22 +7,31 @@ import ContentBox from "../ContentBox";
 const GetApiData = (props) => {
   const [query, setQuery] = React.useState("");
   const [data, setData] = React.useState([]);
-  // const [isLoading, setIsLoading] = React.useState(true);
-  // const url = query ? `${API_URL}?q=${query}` : API_URL;
+  const [limit, setLimit] = React.useState(3);
+  const [offset, setOffset] = React.useState(0);
   React.useEffect(() => {
     const lowerCaseQuery = query.toLowerCase();
     const fetchData = async () => {
       if (query.length >= 2) {
-        console.log("Fetching data");
-        const result = await axios(`${API_URL}?q=${lowerCaseQuery}`);
-        setData(result.data);
+        const url = `${API_URL}?q=${lowerCaseQuery}&limit=${limit}&offset=${offset}`;
+        console.log("Fetching data: ", url);
+        const result = await axios(url);
+        setData(data.length > 0 ? data.concat(result.data) : result.data);
       }
     };
 
     setTimeout(fetchData, 100);
-  }, [query]);
+  }, [query, limit, offset]);
   return (
-    <ContentBox data={data} setQuery={setQuery} query={query}></ContentBox>
+    <ContentBox
+      data={data}
+      setQuery={setQuery}
+      query={query}
+      limit={limit}
+      setLimit={setLimit}
+      offset={offset}
+      setOffset={setOffset}
+    ></ContentBox>
   );
 };
 export default GetApiData;

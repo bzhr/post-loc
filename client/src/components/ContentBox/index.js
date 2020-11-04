@@ -8,7 +8,6 @@ import Results from "../Results";
 const ContentBox = (props) => {
   return (
     <Box
-      // minHeight={200}
       sx={{
         maxWidth: 600,
         mx: "auto",
@@ -20,7 +19,7 @@ const ContentBox = (props) => {
       <Flex flexDirection="column">
         <SearchBox {...props} />
         <Suggestions {...props} />
-        <Results data={props.data} />
+        <Results {...props} />
       </Flex>
     </Box>
   );

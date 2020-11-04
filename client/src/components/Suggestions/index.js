@@ -5,7 +5,6 @@ const Suggestions = ({ data, setQuery, query }) => {
   console.log(query);
   return (
     <Flex flexWrap="wrap" my={2}>
-      {/* take the first 4 results for suggestions, not to break the ui */}
       {data.map((item) => (
         <Box my={1} mx={2} key={item.name} sx={{ cursor: "pointer" }}>
           {item.name.toLowerCase().includes(query) && (
