@@ -2,7 +2,7 @@ import * as React from "react";
 import { Input } from "@rebass/forms";
 import { Box } from "rebass";
 
-const SearchBox = ({ data, query, setQuery }) => {
+const SearchBox = ({ query, setQuery, setLimit }) => {
   return (
     <Box>
       <Input
@@ -11,7 +11,10 @@ const SearchBox = ({ data, query, setQuery }) => {
         type="text"
         placeholder="Enter a search term"
         value={query}
-        onChange={(event) => setQuery(event.target.value)}
+        onChange={(event) => {
+          setQuery(event.target.value);
+          setLimit(3);
+        }}
       />
     </Box>
   );

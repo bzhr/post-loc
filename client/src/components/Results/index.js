@@ -2,13 +2,10 @@ import * as React from "react";
 import { Box, Flex, Text } from "rebass";
 import { useScrollPosition } from "@huse/scroll-position";
 
-const Results = ({ data, setOffset, limit, setLimit }) => {
+const Results = ({ data, setLimit }) => {
   const ref = React.useRef(null);
   const position = useScrollPosition(ref.current);
-  console.log(useScrollPosition);
-  console.log("Position: ", position.y);
   if (position.y > 20) {
-    setOffset(data.length);
     setLimit("");
   }
   return (

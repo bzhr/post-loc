@@ -8,20 +8,23 @@ const GetApiData = (props) => {
   const [query, setQuery] = React.useState("");
   const [data, setData] = React.useState([]);
   const [limit, setLimit] = React.useState(3);
-  const [offset, setOffset] = React.useState(0);
   React.useEffect(() => {
     const lowerCaseQuery = query.toLowerCase();
-    const fetchData = async () => {
-      if (query.length >= 2) {
-        const url = `${API_URL}?q=${lowerCaseQuery}&limit=${limit}&offset=${offset}`;
-        console.log("Fetching data: ", url);
-        const result = await axios(url);
-        setData(data.length > 0 ? data.concat(result.data) : result.data);
-      }
-    };
+    if (query === "") {
+      setData([]);
+    } else {
+      const fetchData = async () => {
+        if (query.length >= 2) {
+          const url = `${API_URL}?q=${lowerCaseQuery}&limit=${limit}`;
+          const result = await axios(url);
+          // setData(data.length > 0 ? data.concat(result.data) : result.data);
+          setData(result.data);
+        }
+      };
 
-    setTimeout(fetchData, 100);
-  }, [query, limit, offset]);
+      setTimeout(fetchData, 100);
+    }
+  }, [query, limit]);
   return (
     <ContentBox
       data={data}
@@ -29,8 +32,6 @@ const GetApiData = (props) => {
       query={query}
       limit={limit}
       setLimit={setLimit}
-      offset={offset}
-      setOffset={setOffset}
     ></ContentBox>
   );
 };
