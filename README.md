@@ -14,6 +14,8 @@ Being a minimal web server on the other hand is inspired by Flask. Also, Jinja i
 
 The code to handle the code assignment task is functional and optimized. WebServer responses and running tests is fast.
 
+![Presentation](app/static/pres.gif)
+
 ### Project structure
 
 A) Backend
